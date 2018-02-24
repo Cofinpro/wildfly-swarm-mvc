@@ -1,0 +1,3 @@
+= MVC (JSR 371)
+
+Provides support for developing frontends with MVC using Ozark RI.

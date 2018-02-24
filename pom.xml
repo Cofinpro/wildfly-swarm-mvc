@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.cofinpro.wildfly.swarm</groupId>
+  <artifactId>mvc</artifactId>
+  <version>2018.2.0</version>
+
+  <name>MVC</name>
+  <description>Create Web Frontends with MVC 1.0 and Ozark RI</description>
+
+  <packaging>jar</packaging>
+
+  <properties>
+    <version.swarm>2018.2.0.Final</version.swarm>
+    <version.swarm.fraction-plugin>83</version.swarm.fraction-plugin>
+    <version.ozark>1.0.0-m03</version.ozark>
+    <swarm.fraction.stability>experimental</swarm.fraction.stability>
+    <swarm.fraction.tags>Web</swarm.fraction.tags>
+  </properties>
+
+  <dependencies>
+    <!-- Fraction Dependencies -->
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>jaxrs</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>cdi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>bean-validation</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>javax.mvc</groupId>
+      <artifactId>javax.mvc-api</artifactId>
+      <version>1.0-pr</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mvc-spec.ozark</groupId>
+      <artifactId>ozark-core</artifactId>
+      <version>${version.ozark}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mvc-spec.ozark</groupId>
+      <artifactId>ozark-resteasy</artifactId>
+      <version>${version.ozark}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- Meta SPI -->
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>meta-spi</artifactId>
+      <version>${version.swarm}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.wildfly.core</groupId>
+      <artifactId>wildfly-core-feature-pack</artifactId>
+      <version>3.0.8.Final</version>
+      <type>zip</type>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly</groupId>
+      <artifactId>wildfly-servlet-feature-pack</artifactId>
+      <version>11.0.0.Final</version>
+      <type>zip</type>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly</groupId>
+      <artifactId>wildfly-feature-pack</artifactId>
+      <version>11.0.0.Final</version>
+      <type>zip</type>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>bom-all</artifactId>
+        <version>${version.swarm}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>wildfly-swarm-fraction-plugin</artifactId>
+        <version>${version.swarm.fraction-plugin}</version>
+        <executions>
+          <execution>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>process</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
