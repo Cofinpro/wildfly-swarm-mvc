@@ -14,9 +14,14 @@
   <packaging>jar</packaging>
 
   <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <version.swarm>2018.2.0.Final</version.swarm>
     <version.swarm.fraction-plugin>83</version.swarm.fraction-plugin>
     <version.ozark>1.0.0-m03</version.ozark>
+
     <swarm.fraction.stability>experimental</swarm.fraction.stability>
     <swarm.fraction.tags>Web</swarm.fraction.tags>
   </properties>
